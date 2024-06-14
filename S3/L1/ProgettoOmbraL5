@@ -14,7 +14,7 @@ try:
     for i in range(num_pacchetti):   #TRADOTTO :" per(ogni) numero intero nel range(num_pacchetti) invia : pacchetto"
         pacchetto = b'mostro' * 1024  # Qui abbiamo dovuto definire il contenuto del pacchetto 
         s.send(pacchetto)            # questo li invia 
-        print(f"Mostro {i} inviato con successo.")# Questo stampa la lista dei pacchetti inviati con succeso
+        print(f"Mostro {i} inviato con successo.")# Questo stampa la lista dei pacchetti inviati con successo, che fa riferimeto alla variabile
 
 except Exception:
     print("Errore durante la connessione o l'invio dei mostri:") #Questo è quello che succede in caso di mancata connessione 
