@@ -1,10 +1,11 @@
+import random
 import socket as so
 
 ADR = input("Inserisci l'IP: ") #qui ho inserito le costanti per l'ip e le porte 
 PRT = int(input("E la porta: ")) 
 num_pacchetti = int(input("Numero di mostri da inviare: "))  # Qui invece la variabile del numero di pacchetti da inviare 
 s = so.socket(so.AF_INET, so.SOCK_DGRAM) #Qua ho dovuto definire la variabile s=so.socket affinchè scegliesse --
-                                         #--le address family corrette a cui attaccarsi con s.connect--
+pacchetto = random._urandom(1024)                        #--le address family corrette a cui attaccarsi con s.connect--
                                          #--e ho dovuto fare attenzione al SOCK_DGRAM che è l'address che permmette la richiesta UDP--
 
 try:
@@ -12,8 +13,8 @@ try:
     print("Invio mostri:")
 
     for i in range(num_pacchetti):   #TRADOTTO :" per(ogni) numero intero nel range(num_pacchetti) invia : pacchetto"
-        pacchetto = b'mostro' * 1024  # Qui abbiamo dovuto definire il contenuto del pacchetto 
-        s.send(pacchetto)            # questo li invia 
+        
+        s.sendto(pacchetto,(ADR, PRT))           # questo li invia 
         print(f"Mostro {i} inviato con successo.")# Questo stampa la lista dei pacchetti inviati con successo, che fa riferimeto alla variabile
 
 except Exception:
