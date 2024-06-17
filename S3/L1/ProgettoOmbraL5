@@ -9,6 +9,7 @@ pacchetto = random._urandom(1024)                        #--le address family co
                                          #--e ho dovuto fare attenzione al SOCK_DGRAM che è l'address che permmette la richiesta UDP--
 
 try:
+    s.bind((ADR, PRT))
     s.connect((ADR, PRT))
     print("Invio mostri:")
 
